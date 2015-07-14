@@ -1,0 +1,29 @@
+\documentclass{article}
+\title{A new result for the Degree/Diameter Problem}
+\author{Yawara ISHIDA}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+The Degree/Diameter Problem is one of the most famous problem in graph theory. We found a new $(306,2)$-graph with $88723$ vertices.
+\end{abstract}
+
+\section{Prerequisite}
+A {\it graph} $G=(V,E)$ consists of a set $V$ called {\it vertices} and a set $E \subset V^2$ called {\it edges}.
+If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}. 
+If the vertex $v$ is adjacent to itself, the edge $(v,v)$ is called {\it loop}.
+The graph $G$ without any loops is {\it simple}.
+The {\it order} $N$ of the graph is the size of the set of vertices. 
+The {\it degree} of the vertex $\delta(v)$ is a number of vertices which are adjacent to $v$. 
+The {\it degree} of the graph $\Delta$ is the maximal degree  of the vertex.
+The graph is {\it regular} if every vertex' degree are same.
+The {\it distance} for each pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
+The {\it diameter} $D$ of the graph is the  maximum distance for all pairs of vertices. 
+The {\it Degree/Diameter problem} is finiding the graph with the maximum vertices for given degree $\Delta$ and diameter $D$. 
+The order of a graph with degree $\Delta$ ($\Delta > 2$) of diameter D is easily seen to be bounded by 
+
+\[ 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
+
+which is called {\it Moore bound}.
+The genaral constructions for small degree and small diameter are known. Especially for $D=2$ there exists the general construction called Brown's construction.
+Given the finite field $F_q$ where q is a power of prime, we construct Brown's one $B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is 2 because $B(F_q)$ includes many triangles. Any lines are symmetric in $F_q$, so $B(F_q)$ is regular. However it is not simple because of including some loops. Removing any loops from $B(F_q)$, we get the simple graph whose degree of vertices are $q+1$ or $q$. 
