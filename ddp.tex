@@ -2,28 +2,127 @@
 \title{A new result for the Degree/Diameter Problem}
 \author{Yawara ISHIDA}
 
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\newtheorem{Def}{Definition}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Cor}[Lem]{Corollary}
+\newtheorem{Th}{Theorem}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\EB}{\mathrm{EB}}
+
 \begin{document}
 \maketitle
 \begin{abstract}
-The Degree/Diameter Problem is one of the most famous problem in graph theory. We found a new $(306,2)$-graph with $88723$ vertices.
+The Degree/Diameter Problem is one of the most famous problem in graph theory. 
+We consider the problem for the case of Diameter 2.
+We extented the Brown's construction.
+We found a new graph by $(306,2)$-graph with $88723$ vertices by our construction.
 \end{abstract}
 
-\section{Prerequisite}
+\section{Introduction}
 A {\it graph} $G=(V,E)$ consists of a set $V$ called {\it vertices} and a set $E \subset V^2$ called {\it edges}.
-If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}. 
+If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent} and denoted $v \sim w$. 
 If the vertex $v$ is adjacent to itself, the edge $(v,v)$ is called {\it loop}.
 The graph $G$ without any loops is {\it simple}.
-The {\it order} $N$ of the graph is the size of the set of vertices. 
+The {\it order} $|G|$ of the graph is the size of the set of vertices. 
 The {\it degree} of the vertex $\delta(v)$ is a number of vertices which are adjacent to $v$. 
-The {\it degree} of the graph $\Delta$ is the maximal degree  of the vertex.
-The graph is {\it regular} if every vertex' degree are same.
+The {\it degree} of the graph $\Delta(G)$ is the maximal degree  of the vertex.
+The graph is {\it regular} if every vertex's degree are same.
 The {\it distance} for each pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
-The {\it diameter} $D$ of the graph is the  maximum distance for all pairs of vertices. 
+The {\it diameter} $D(G)$ of the graph is the  maximum distance for all pairs of vertices. 
 The {\it Degree/Diameter problem} is finiding the graph with the maximum vertices for given degree $\Delta$ and diameter $D$. 
 The order of a graph with degree $\Delta$ ($\Delta > 2$) of diameter D is easily seen to be bounded by 
-
 \[ 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
-
 which is called {\it Moore bound}.
-The genaral constructions for small degree and small diameter are known. Especially for $D=2$ there exists the general construction called Brown's construction.
-Given the finite field $F_q$ where q is a power of prime, we construct Brown's one $B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is 2 because $B(F_q)$ includes many triangles. Any lines are symmetric in $F_q$, so $B(F_q)$ is regular. However it is not simple because of including some loops. Removing any loops from $B(F_q)$, we get the simple graph whose degree of vertices are $q+1$ or $q$. 
+
+The genaral constructions for small degree and small diameter are known. Especially for case of  $D=2$ there exists the general construction called {\it Brown's construction}.
+Given the finite field $F_q$ where q is a power of prime, we construct the graph $B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
+We call it the Brown's graph.
+The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is 2 because $B(F_q)$ includes many triangles. 
+Any lines are symmetric in $F_q$, so $B(F_q)$ is regular. However it is not simple because of including some loops. 
+Removing any loops from $B(F_q)$, we get the simple graph whose degree of vertices are $q+1$ or $q$. 
+
+%%% Hmm %%%
+\iffalse
+
+The {\it tensor product} of two graphs $G_1=(V_1,E_1),G_2=(V_2,E_2)$ is a graph $G_1 \otimes G_2$ such that the vertex set is a cartesian product of $V_1$ and $V_2$ and two vertices $(v_1,v_2) \sim (w_1,w_2)$ if and only if $v_1 \sim v_2$ and $w_1 \sim w_2$. If $G_1, G_2$ are regular, the tensor product $G_1 \times G_2$ is also regular. 
+
+\fi
+%%% --- %%%
+
+Let $R$ be a ring with unity. 
+$R^*$ denotes the set of invertible elements of $R$.
+$R^3$ is naturally seen as R-module. 
+The addition and $R$-action are defined by coordinate-wise.
+The {\it inner product} $\cdot: R^3 \times R^3 \Rightarrow R$ is defined as follows
+\[ (v_1,v_2,v_3) \cdot (w_1,w_2,w_3) = v_1 w_1 + v_2 w_2 + v_3 w_3 \]
+${\bm v}, {\bm w}$ are {\it orthogonal} if and only if the inner of product of ${\bm v}, {\bm w}$  vanishes, namely ${\bm v} \cdot {\bm w} = 0$.
+The {\it cross product} $\times: R^3 \times R^3 \Rightarrow R$ is defined as follows
+\[ (v_1,v_2,v_3) \cdot (w_1,w_2,w_3) = ( v_2 w_3 - v_3 w_2, v_3 w_1 - v_1 w_3, v_1 w_2 - v_2 w_1 ) \]
+The {\it domain} $D$ is a ring without zero divisors.
+The {\it Euclidean domain} consists of the domain $E$ and the function called degree $d: E \setminus \{0\} \Rightarrow \N$ such that for all non-zero $a,b \in E$ there exists $q,r \in E, a = q b + r$ where $d(r) < d(b)$.
+The ring of integers $\Z$ is a example of the Euclidean domains.
+
+
+\section{Extended Brown's Construction}
+\begin{Def}
+Let $(R,+,0,*,1)$ be a ring with unit. The vertex set $V$ of the extended Brown's graph $\EB(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
+where $\bm v \sim \bm w$ if and only iff $\exists k \in R^*, k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v],[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
+\end{Def}
+
+The adjacency of the definition above is well-defined because the orthogonality does not depends on the selection of representitives.
+
+%%% Hmmm %%%
+\iffalse
+
+\begin{Lem}
+Let $R_1, R_2$ be rings with unit. 
+\[ \EB(R_1 \times R_2) \simeq \EB(R_1) \otimes \EB(R_2) \]
+\end{Lem}
+
+\begin{Cor}
+The followig equations holds.
+\begin{enumerate}
+\item $ | \EB(R_1 \times R_2) | = | \EB(R_1) | \times | \EB(R_2) | $
+\item $ \Delta(\EB(R_1 \times R_2)) = \Delta(\EB(R_1)) \times \Delta( \EB(R_2) )$
+\end{enumerate}
+\end{Cor}
+
+\fi 
+%%% --- %%%
+
+\begin{Lem}
+The following equations holds.
+\begin{enumerate}
+\item $ |\EB(\Z_{p^k})| = p^{2k}+p^{2k-1}+p^{2k-2} $
+\item $ \Delta(\EB(\Z_{p^k})) = p^k + p^{k-1} $
+\end{enumerate}
+
+\end{Lem}
+
+\begin{Lem}
+Let $E$ be a Euclidean domain and $I$ be ideal of $E$. The diameter of $\EB(E/I)$ is 2.
+\end{Lem}
+
+\begin{proof}
+For any two distinct vertices $[\bm v]$ and $[\bm w]$, consider the cross product $\bm v \times \bm w$. If $\bm v \times \bm w = \bm 0$, $v_i \cdot \bm w = w_i \cdot \bm v$ for $i=1,2,3$. 
+For any vertex $[\bm v]$, the triple $(v_1,v_2,v_3)$ are coprime, then there exists $a,b,c \in E/I$ such that $a v_1 + b v_2+ c v_3 = 1$.
+\[ \bm v = 1 \cdot \bm v = ( a v_1 + b v_2+ c v_3 ) \bm v = ( a w_1 + b w_2 + c w_3 ) \bm w\]
+It is a contradiction then $\bm v \times \bm w \neq \bm 0$. 
+If $\bm v \times \bm w$ is a representitive of vertex, $[\bm v \times \bm w]$ is adjacent to $[\bm v]$ and $[\bm w]$.
+If $\bm v \times \bm w$ is not a representitive of vertex, there exist $k \in E/I$ and $\bm u \in (E/I)^3$ such that $\bm v \times \bm w = k \cdot \bm u$ and $\bm u$ is a representitive of vertex. $[\bm u]$ is adjacent to $[\bm v]$ and $[\bm w]$.
+\end{proof}
+
+\begin{Cor}
+The diameter of $\EB(\Z_n)$ is 2.
+\end{Cor}
+
+\section{Acknowledgement}
+Thank you!!!
+
+\end{document}
