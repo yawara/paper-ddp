@@ -4,7 +4,9 @@
 
 \usepackage{bm}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{hyperref}
 
 \newtheorem{Def}{Definition}
 \newtheorem{Lem}{Lemma}
@@ -13,15 +15,15 @@
 
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
-\newcommand{\EB}{\mathrm{EB}}
+\newcommand{\B}{\mathrm{B}}
 
 \begin{document}
 \maketitle
 \begin{abstract}
 The Degree/Diameter Problem is one of the most famous problem in graph theory. 
 We consider the problem for the case of diameter 2.
-We extended the Brown's construction.
-We found a new graph by $(306,2)$-graph with $88723$ vertices and $(307,2)$-graph with $88724$ by our construction.
+We generalized the Brown's construction.
+We found new graphs $(306,2)$-graph with $88723$ vertices and $(307,2)$-graph with $88724$ by our construction.
 \end{abstract}
 
 \section{Introduction}
@@ -36,17 +38,19 @@ The {\it degree} of the graph $\Delta(G)$ is the maximal degree  of the vertex.
 The graph is {\it regular} if every vertex's degree are same.
 The {\it distance} for each pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
 The {\it diameter} $D(G)$ of the graph is the  maximum distance of all pairs of vertices. 
+
 The {\it Degree/Diameter problem} is the problem of finding the graph with the maximum vertices for given degree $\Delta$ and diameter $D$. 
 The order of a graph with degree $\Delta$ ($\Delta > 2$) of diameter D is easily seen to be bounded by 
 \[ 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
 which is called {\it Moore bound}.
-
-The genaral constructions for small diameters are known. Especially for case of  $D=2$ there exists the general construction called the {\it Brown's construction}.
-Given the finite field $F_q$ where q is a power of prime, we construct the graph $B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
+Moore bound is the general upper bound. On the other hand, already known lower bounds of small degree and small diameter are availabe at \url{http://combinatoricswiki.org}. 
+Especially for case of $D=2$ there exists the general construction called the {\it Brown's construction}.
+Given the finite field $F_q$ where q is a power of prime, we construct the graph $\B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
 We call it the Brown's graph.
 The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is 2 because $B(F_q)$ includes many triangles. 
 Any lines are symmetric in $F_q$, so $B(F_q)$ is regular. However it is not simple because of including some loops. 
 Removing any loops from $B(F_q)$, we get the simple graph whose degree of vertices are $q+1$ or $q$. 
+In this paper, we generalize the Brown's construction, in which we replace a field with a ring, and search new records of the Degree/Diameter Problem.
 
 %%% Hmm %%%
 \iffalse
@@ -70,35 +74,35 @@ A {\it Euclidean domain} is a domain $E$ with a function called degree $d: E \se
 The ring of integers $\Z$ is a example of the Euclidean domains.
 
 
-\section{Extended Brown's Construction}
+\section{Generalized Brown's Construction}
 \begin{Def}
-Let $(R,+,0,*,1)$ be a ring with unit. The vertex set $V$ of the extended Brown's graph $\EB(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
-where $\bm v \sim \bm w$ if and only if $\exists k \in R^*, k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v],[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
+Let $(R,+,0,*,1)$ be a ring with unit. The vertex set $V$ of the generalized Brown's graph $\B(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
+where $\bm v \sim \bm w$ if and only if there exists $k \in R^*$ such that $k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v],[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
 \end{Def}
 
-The adjacency of the definition above is well-defined because the orthogonality does not depends on the selection of representitives. We call the above construction whish gives a graph from a ring the {\it extended Brown's construction}. It is clear that the new construction coincides old one when the ring is a field.
+The adjacency of the definition above is well-defined because the orthogonality does not depends on the selection of representitives. We call the above construction which gives a graph from a ring the {\it generalized Brown's construction}. It is clear that the new construction coincides old one when the ring is a field.
 
 %%% Hmmm %%%
 \iffalse
 
 \begin{Lem}
 Let $R_1, R_2$ be rings with unit. 
-\[ \EB(R_1 \times R_2) \simeq \EB(R_1) \otimes \EB(R_2) \]
+\[ \B(R_1 \times R_2) \simeq \B(R_1) \otimes \B(R_2) \]
 \end{Lem}
 
 \begin{Cor}
 The followig equations hold.
 \begin{enumerate}
-\item $ | \EB(R_1 \times R_2) | = | \EB(R_1) | \times | \EB(R_2) | $
-\item $ \Delta(\EB(R_1 \times R_2)) = \Delta(\EB(R_1)) \times \Delta( \EB(R_2) )$
+\item $ | \B(R_1 \times R_2) | = | \B(R_1) | \times | \B(R_2) | $
+\item $ \Delta(\B(R_1 \times R_2)) = \Delta(\B(R_1)) \times \Delta( \B(R_2) )$
 \end{enumerate}
 \end{Cor}
 
 \fi 
 %%% --- %%%
 
-\begin{Lem}
-Let $E$ be a Euclidean domain and $u$ be a prime element in $E$. If $E/(u^k)$ is a finite ring, then $\EB(E/(u^k))$ is a regular graph, where $(u^k)$ is a principal ideal generated by $u^k$. Note that $\EB(E/(u^k))$ is not simple.
+\begin{Lem}\label{Lem:regular}
+Let $E$ be a Euclidean domain and $u$ be a prime element in $E$. If $E/(u^k)$ is a finite ring, then $\B(E/(u^k))$ is a regular graph, where $(u^k)$ is a principal ideal generated by $u^k$. Note that $\B(E/(u^k))$ is not simple.
 \end{Lem}
 
 \begin{proof}
@@ -107,11 +111,21 @@ Let ${\bm v} = ([a],[b],[c])$ be a representitive of any vertex where $a,b,c \in
 If any element of $[a],[b],[c]$ is not invertible in $E/(u^k)$, 
 there exists natural numbers $l,m,n < k$ and some elements $a',b',c'$ in $E$ such that $a=u^l a', b=u^m b', c=u^n c'$. ${\bm v}$ is not a representitive of vertices because of $[u^{min(l,m,n)}] \cdot {\bm v} = ([0],[0],[0])$. 
 Therefore, one element of $[a],[b],[c]$ is at leatst invertible.
-If $[a]$ is invertible, there exists one-to-one correspondence $U^{-1}: N([v]) \rightarrow N([1,0,0])$ such that 
+If $[a]$ is invertible, there exists one-to-one correspondence $\overline{U}: N([(1,0,0)])  \rightarrow N([{\bm v}])$ such that for all $[{\bm w}] \in N([1,0,0])$, $\overline{U}([\bm w] = [ {}^t\!U^{-1} {\bm w} ]$ where U is an invertible matrix defined as follows
+\[
+ U = \left(
+ \begin{matrix}
+  [a] & 0 & 0 \\
+  [b] & 1 & 0 \\
+  [c] & 0 & 1
+ \end{matrix} \right)
+\]
+Therefore, $\delta([\bm v]) = \delta([(1,0,0)])$. In the same way, if $[b]/[c]$ is invertible, then $\delta([\bm v]) = \delta([(0,1,0)])/\delta([(0,0,1)])$. 
+
 \end{proof}
 
-\begin{Lem}
-Let $E$ be a Euclidean domain and $I$ be an ideal of $E$. The diameter of $\EB(E/I)$ is 2.
+\begin{Lem}\label{Lem:diameter}
+Let $E$ be a Euclidean domain and $I$ be an ideal of $E$. The diameter of $\B(E/I)$ is 2.
 \end{Lem}
 
 \begin{proof}
@@ -126,30 +140,28 @@ If $\bm v \times \bm w$ is not a representitive of vertex, there exist $k \in E/
 \begin{Th}
 The following equations hold.
 \begin{enumerate}
-\item $ |\EB(\Z_{p^k})| = p^{2k}+p^{2k-1}+p^{2k-2} $
-\item $ \Delta(\EB(\Z_{p^k})) = p^k + p^{k-1} $
+\item $ |\B(\Z_{p^k})| = p^{2k}+p^{2k-1}+p^{2k-2} $
+\item $ \Delta(\B(\Z_{p^k})) = p^k + p^{k-1} $
 \item $ D(\Z_{p^k}) = 2$
 \end{enumerate}
 \end{Th}
 
 \begin{proof}
-It is straightforward to show the formula of the order of $\EB(\Z_{p^k})$.
+It is straightforward to show the formula of the order of $\B(\Z_{p^k})$.
 
 \begin{eqnarray*}
-|\EB(\Z_{p^k})| & = & \frac{|\Z_{p^k}|^3 - |\{ mp | 0 \leq m < k \}|^3}{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\ 
+|\B(\Z_{p^k})| & = & \frac{|\Z_{p^k}|^3 - |\{ mp | 0 \leq m < k \}|^3}{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\ 
 & = & \frac{(p^k)^3 - (p^{k-1})^3}{p^k-p^{k-1}} = p^{2k}+p^{2k-1}+p^{2k-2}
 \end{eqnarray*}
 
-It is straightforward to show the formula of the degree of the vertex represented by $(1,0,0)$
+It is only enough to show that the degree of the vertex represented by $(1,0,0)$ satisfy the formula of the degree of $\B(\Z_{p^k})$. 
+It is clear that $\Z_p^{k}$ satisfies the assumption of Lemma \ref{Lem:regular}, then $\B(\Z_p^{k})$ is a regular graph. 
 \begin{eqnarray*}
-\delta([(1,0,0)]) & = & \frac{|\Z_{p^k}|^2 - |\{ mp | 0 \leq m < k \}|^2 }{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\
+\Delta(\B(\Z_p^k)) & = & \delta([(1,0,0)]) = \frac{|\Z_{p^k}|^2 - |\{ mp | 0 \leq m < k \}|^2 }{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\
 & = & \frac{(p^k)^2 - (p^{k-1})^2}{p^k-p^{k-1}} = p^k + p^{k-1}
 \end{eqnarray*}
-In the same way, 
-\[\delta([(1,0,0)])=\delta([(0,1,0)])=\delta([(0,0,1)]) = p^k + p^{k-1}\]
-holds.
-The degree of any other vertex is same to the degree of the vertex represented by $(1,0,0)$. 
-For all a representitive ${\bm v} = (v_1,v_2,v_3)$ of the vertex, the triple $(v_1,v_2,v_3)$ includes one invertible element at least. If $v_1$ is invertible element, 
+
+Applying Lemma \ref{Lem:diameter}, we get $D(\B(\Z_p^k)) = 2$
 
 \end{proof}
 
