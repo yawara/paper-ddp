@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{A new result for the Degree/Diameter Problem}
+\title{New results for the Degree/Diameter Problem}
 \author{Yawara ISHIDA}
 
 \usepackage{bm}
@@ -9,7 +9,7 @@
 \newtheorem{Def}{Definition}
 \newtheorem{Lem}{Lemma}
 \newtheorem{Cor}[Lem]{Corollary}
-\newtheorem{Th}{Theorem}
+\newtheorem*{Th}{Theorem}
 
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
@@ -19,28 +19,29 @@
 \maketitle
 \begin{abstract}
 The Degree/Diameter Problem is one of the most famous problem in graph theory. 
-We consider the problem for the case of Diameter 2.
-We extented the Brown's construction.
-We found a new graph by $(306,2)$-graph with $88723$ vertices by our construction.
+We consider the problem for the case of diameter 2.
+We extended the Brown's construction.
+We found a new graph by $(306,2)$-graph with $88723$ vertices and $(307,2)$-graph with $88724$ by our construction.
 \end{abstract}
 
 \section{Introduction}
 A {\it graph} $G=(V,E)$ consists of a set $V$ called {\it vertices} and a set $E \subset V^2$ called {\it edges}.
-If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent} and denoted $v \sim w$. 
+If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}, which is denoted by $v \sim w$.
 If the vertex $v$ is adjacent to itself, the edge $(v,v)$ is called {\it loop}.
 The graph $G$ without any loops is {\it simple}.
 The {\it order} $|G|$ of the graph is the size of the set of vertices. 
-The {\it degree} of the vertex $\delta(v)$ is a number of vertices which are adjacent to $v$. 
+The {\it neighbors} $N(v)$ of the vertex $v$ is a set of vertices which are adjacent to $v$.
+The {\it degree} of the vertex $\delta(v)$ is a size of neighbors $| N(v) |$.  
 The {\it degree} of the graph $\Delta(G)$ is the maximal degree  of the vertex.
 The graph is {\it regular} if every vertex's degree are same.
 The {\it distance} for each pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
-The {\it diameter} $D(G)$ of the graph is the  maximum distance for all pairs of vertices. 
-The {\it Degree/Diameter problem} is finiding the graph with the maximum vertices for given degree $\Delta$ and diameter $D$. 
+The {\it diameter} $D(G)$ of the graph is the  maximum distance of all pairs of vertices. 
+The {\it Degree/Diameter problem} is the problem of finding the graph with the maximum vertices for given degree $\Delta$ and diameter $D$. 
 The order of a graph with degree $\Delta$ ($\Delta > 2$) of diameter D is easily seen to be bounded by 
 \[ 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
 which is called {\it Moore bound}.
 
-The genaral constructions for small degree and small diameter are known. Especially for case of  $D=2$ there exists the general construction called {\it Brown's construction}.
+The genaral constructions for small diameters are known. Especially for case of  $D=2$ there exists the general construction called the {\it Brown's construction}.
 Given the finite field $F_q$ where q is a power of prime, we construct the graph $B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
 We call it the Brown's graph.
 The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is 2 because $B(F_q)$ includes many triangles. 
@@ -61,21 +62,21 @@ $R^3$ is naturally seen as R-module.
 The addition and $R$-action are defined by coordinate-wise.
 The {\it inner product} $\cdot: R^3 \times R^3 \Rightarrow R$ is defined as follows
 \[ (v_1,v_2,v_3) \cdot (w_1,w_2,w_3) = v_1 w_1 + v_2 w_2 + v_3 w_3 \]
-${\bm v}, {\bm w}$ are {\it orthogonal} if and only if the inner of product of ${\bm v}, {\bm w}$  vanishes, namely ${\bm v} \cdot {\bm w} = 0$.
+${\bm v}, {\bm w}$ are {\it orthogonal} if and only if the inner product vanishes, namely ${\bm v} \cdot {\bm w} = 0$.
 The {\it cross product} $\times: R^3 \times R^3 \Rightarrow R$ is defined as follows
 \[ (v_1,v_2,v_3) \cdot (w_1,w_2,w_3) = ( v_2 w_3 - v_3 w_2, v_3 w_1 - v_1 w_3, v_1 w_2 - v_2 w_1 ) \]
-The {\it domain} $D$ is a ring without zero divisors.
-The {\it Euclidean domain} consists of the domain $E$ and the function called degree $d: E \setminus \{0\} \Rightarrow \N$ such that for all non-zero $a,b \in E$ there exists $q,r \in E, a = q b + r$ where $d(r) < d(b)$.
+A {\it domain} $D$ is a ring without zero divisors.
+A {\it Euclidean domain} is a domain $E$ with a function called degree $d: E \setminus \{0\} \Rightarrow \N$ such that for all non-zero $a,b \in E$ there exists $q,r \in E, a = q b + r$ where $d(r) < d(b)$.
 The ring of integers $\Z$ is a example of the Euclidean domains.
 
 
 \section{Extended Brown's Construction}
 \begin{Def}
 Let $(R,+,0,*,1)$ be a ring with unit. The vertex set $V$ of the extended Brown's graph $\EB(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
-where $\bm v \sim \bm w$ if and only iff $\exists k \in R^*, k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v],[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
+where $\bm v \sim \bm w$ if and only if $\exists k \in R^*, k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v],[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
 \end{Def}
 
-The adjacency of the definition above is well-defined because the orthogonality does not depends on the selection of representitives.
+The adjacency of the definition above is well-defined because the orthogonality does not depends on the selection of representitives. We call the above construction whish gives a graph from a ring the {\it extended Brown's construction}. It is clear that the new construction coincides old one when the ring is a field.
 
 %%% Hmmm %%%
 \iffalse
@@ -86,7 +87,7 @@ Let $R_1, R_2$ be rings with unit.
 \end{Lem}
 
 \begin{Cor}
-The followig equations holds.
+The followig equations hold.
 \begin{enumerate}
 \item $ | \EB(R_1 \times R_2) | = | \EB(R_1) | \times | \EB(R_2) | $
 \item $ \Delta(\EB(R_1 \times R_2)) = \Delta(\EB(R_1)) \times \Delta( \EB(R_2) )$
@@ -97,30 +98,65 @@ The followig equations holds.
 %%% --- %%%
 
 \begin{Lem}
-The following equations holds.
-\begin{enumerate}
-\item $ |\EB(\Z_{p^k})| = p^{2k}+p^{2k-1}+p^{2k-2} $
-\item $ \Delta(\EB(\Z_{p^k})) = p^k + p^{k-1} $
-\end{enumerate}
-
+Let $E$ be a Euclidean domain and $u$ be a prime element in $E$. If $E/(u^k)$ is a finite ring, then $\EB(E/(u^k))$ is a regular graph, where $(u^k)$ is a principal ideal generated by $u^k$. Note that $\EB(E/(u^k))$ is not simple.
 \end{Lem}
 
+\begin{proof}
+It is clear that the degrees of vertices represented by $(1,0,0), (0,1,0), (0,0,1)$ are same.
+Let ${\bm v} = ([a],[b],[c])$ be a representitive of any vertex where $a,b,c \in E$. 
+If any element of $[a],[b],[c]$ is not invertible in $E/(u^k)$, 
+there exists natural numbers $l,m,n < k$ and some elements $a',b',c'$ in $E$ such that $a=u^l a', b=u^m b', c=u^n c'$. ${\bm v}$ is not a representitive of vertices because of $[u^{min(l,m,n)}] \cdot {\bm v} = ([0],[0],[0])$. 
+Therefore, one element of $[a],[b],[c]$ is at leatst invertible.
+If $[a]$ is invertible, there exists one-to-one correspondence $U^{-1}: N([v]) \rightarrow N([1,0,0])$ such that 
+\end{proof}
+
 \begin{Lem}
-Let $E$ be a Euclidean domain and $I$ be ideal of $E$. The diameter of $\EB(E/I)$ is 2.
+Let $E$ be a Euclidean domain and $I$ be an ideal of $E$. The diameter of $\EB(E/I)$ is 2.
 \end{Lem}
 
 \begin{proof}
 For any two distinct vertices $[\bm v]$ and $[\bm w]$, consider the cross product $\bm v \times \bm w$. If $\bm v \times \bm w = \bm 0$, $v_i \cdot \bm w = w_i \cdot \bm v$ for $i=1,2,3$. 
-For any vertex $[\bm v]$, the triple $(v_1,v_2,v_3)$ are coprime, then there exists $a,b,c \in E/I$ such that $a v_1 + b v_2+ c v_3 = 1$.
+For any vertex $[\bm v]$, the cordinate triple $(v_1,v_2,v_3)$ of ${\bm v}$ are coprime, then there exists $a,b,c \in E/I$ such that $a v_1 + b v_2+ c v_3 = 1$.
 \[ \bm v = 1 \cdot \bm v = ( a v_1 + b v_2+ c v_3 ) \bm v = ( a w_1 + b w_2 + c w_3 ) \bm w\]
 It is a contradiction then $\bm v \times \bm w \neq \bm 0$. 
 If $\bm v \times \bm w$ is a representitive of vertex, $[\bm v \times \bm w]$ is adjacent to $[\bm v]$ and $[\bm w]$.
 If $\bm v \times \bm w$ is not a representitive of vertex, there exist $k \in E/I$ and $\bm u \in (E/I)^3$ such that $\bm v \times \bm w = k \cdot \bm u$ and $\bm u$ is a representitive of vertex. $[\bm u]$ is adjacent to $[\bm v]$ and $[\bm w]$.
 \end{proof}
 
-\begin{Cor}
-The diameter of $\EB(\Z_n)$ is 2.
-\end{Cor}
+\begin{Th}
+The following equations hold.
+\begin{enumerate}
+\item $ |\EB(\Z_{p^k})| = p^{2k}+p^{2k-1}+p^{2k-2} $
+\item $ \Delta(\EB(\Z_{p^k})) = p^k + p^{k-1} $
+\item $ D(\Z_{p^k}) = 2$
+\end{enumerate}
+\end{Th}
+
+\begin{proof}
+It is straightforward to show the formula of the order of $\EB(\Z_{p^k})$.
+
+\begin{eqnarray*}
+|\EB(\Z_{p^k})| & = & \frac{|\Z_{p^k}|^3 - |\{ mp | 0 \leq m < k \}|^3}{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\ 
+& = & \frac{(p^k)^3 - (p^{k-1})^3}{p^k-p^{k-1}} = p^{2k}+p^{2k-1}+p^{2k-2}
+\end{eqnarray*}
+
+It is straightforward to show the formula of the degree of the vertex represented by $(1,0,0)$
+\begin{eqnarray*}
+\delta([(1,0,0)]) & = & \frac{|\Z_{p^k}|^2 - |\{ mp | 0 \leq m < k \}|^2 }{|\Z_{p^k}|-|\{ mp | 0 \leq m < k \}|} \\
+& = & \frac{(p^k)^2 - (p^{k-1})^2}{p^k-p^{k-1}} = p^k + p^{k-1}
+\end{eqnarray*}
+In the same way, 
+\[\delta([(1,0,0)])=\delta([(0,1,0)])=\delta([(0,0,1)]) = p^k + p^{k-1}\]
+holds.
+The degree of any other vertex is same to the degree of the vertex represented by $(1,0,0)$. 
+For all a representitive ${\bm v} = (v_1,v_2,v_3)$ of the vertex, the triple $(v_1,v_2,v_3)$ includes one invertible element at least. If $v_1$ is invertible element, 
+
+\end{proof}
+
+We search new graphs 
+
+\begin{Th}
+\end{Th}
 
 \section{Acknowledgement}
 Thank you!!!
