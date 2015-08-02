@@ -54,7 +54,7 @@ The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter o
 $F_q^3$ is isotropic so any lines are symmetric in $F_q^3$, the degree of the vertex of $\B(F_q)$ is $q+1$ or $q$. 
 There exists $q+1$ vertices of degree $q$ in $\B(F_q)$.
 If $q$ is a power of $2$, there exists $(q+1,2)$-graph with $q^2+q+2$ vertices by modifying $\B(F_q)$~\cite{journals/networks/ErdosFH80}.
-In this paper, we generalize the Brown's construction, in which we replace a field with a ring, and search new records of the Degree/Diameter Problem.
+In this paper, we generalize the Brown's construction, in which we replace a field with a commutative ring, and search new records of the Degree/Diameter Problem.
 
 %%% Hmm %%%
 \iffalse
@@ -64,7 +64,7 @@ The {\it tensor product} of two graphs $G_1=(V_1,E_1),G_2=(V_2,E_2)$ is a graph 
 \fi
 %%% --- %%%
 
-Let $R$ be a ring with unity. 
+Let $R$ be a commutative ring with unity. 
 $R^*$ denotes the set of invertible elements of $R$.
 $R^3$ is naturally seen as $R$-module. 
 The addition and $R$-action are defined by coordinate-wise.
@@ -73,14 +73,14 @@ The {\it inner product} $\cdot: R^3 \times R^3 \Rightarrow R$ is defined as foll
 ${\bm v}$ and ${\bm w}$ are {\it orthogonal} if and only if the inner product vanishes, namely ${\bm v} \cdot {\bm w} = 0$.
 The {\it cross product} $\times: R^3 \times R^3 \Rightarrow R$ is defined as follows
 \[ (v_1,v_2,v_3) \cdot (w_1,w_2,w_3) = ( v_2 w_3 - v_3 w_2, v_3 w_1 - v_1 w_3, v_1 w_2 - v_2 w_1 ) \]
-A {\it domain} $D$ is a ring without zero divisors.
+A {\it domain} $D$ is a commutative ring without zero divisors.
 A {\it Euclidean domain} is a domain $E$ with a function called degree $d: E \setminus \{0\} \Rightarrow \N$ such that for all non-zero $a,b$ in $E$ there exists $q,r \in E, a = q b + r$ where $d(r) < d(b)$. Every {\it Euclidean domain} is a {\it unique factorization domain}, in which for all $r$ in $E$, there exist prime elements $u_i$ and natural numbers $k_i$ such that $r = \Pi_i u_i^{k_i}$.
 The ring of integers $\Z$ is a example of the Euclidean domains whose degree function is an identity function.
 
 
 \section{Generalized Brown's Construction}
 \begin{Def}
-Let $R$ be a ring with unit. The vertex set $V$ of the generalized Brown's graph $\B(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
+Let $R$ be a commutative ring with unit. The vertex set $V$ of the generalized Brown's graph $\B(R)$ is \[ V = ( R^3 \setminus \{\bm v | \exists r \in R, r \cdot {\bm v} = {\bm 0} \} ) / \sim\]
 where $\bm v \sim \bm w$ if and only if there exists $k \in R^*$ such that $k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v]$ and $[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
 \end{Def}
 
@@ -90,7 +90,7 @@ The adjacency of the definition above is well-defined because the orthogonality 
 \iffalse
 
 \begin{Lem}
-Let $R_1, R_2$ be rings with unit. 
+Let $R_1, R_2$ be commutative rings with unit. 
 \[ \B(R_1 \times R_2) \simeq \B(R_1) \otimes \B(R_2) \]
 \end{Lem}
 
