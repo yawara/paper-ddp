@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{New results for the Degree/Diameter Problem}
+\title{A Generalization of Brown's Construction for the Degree/Diameter Problem}
 \author{Yawara ISHIDA}
 
 \usepackage{bm}
@@ -20,41 +20,37 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-The Degree/Diameter Problem is one of the most famous problem in graph theory. 
+The degree/diameter problem is one of the most famous problem in graph theory. 
 We consider the problem for the case of diameter 2.
-A lower bound of the order of $(d,2)$-graph is known as the Brown's construction.
-In this paper, we generalized the construction.
-Then we found two new records of degree $306$ and $307$ by our new construction.
+William G Brown gave a lower bound of the order of $(\Delta,2)$-graph.
+In this paper, we give a generalization of his construction and improve the lower bounds for the case of $\Delta=306$ and $\Delta=307$.
 One is $(306,2)$-graph with $88723$ vertices, the other is $(307,2)$-graph with $88724$ vertices.
 \end{abstract}
 
 \section{Introduction}
-A {\it graph} $G=(V,E)$ consists of a set $V$ called {\it vertices} and a set $E \subset \{(v,w) \in V^2 | v \neq w \}$ called {\it edges}.
+A {\it graph} $G=(V,E)$ consists of a set $V$ of {\it vertices} and a set $E \subset \{(v,w) \in V^2 | v \neq w \}$ of {\it edges}.
 If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}, which is denoted by $v \sim w$.
-The {\it order} $|G|$ of the graph is the size of the set of vertices. 
+The {\it order} $|G|$ of the graph is the number of vertices. 
 The {\it neighbors} $N(v)$ of the vertex $v$ is a set of vertices which are adjacent to $v$.
-The {\it degree} of the vertex $\delta(v)$ is a size of neighbors $| N(v) |$.  
-The {\it degree} of the graph $\Delta(G)$ is the maximal degree  of the vertex.
-\iffalse
-The graph is {\it regular} if every vertex's degree are same.
-\fi
-The {\it distance} of the pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$, which is denoted $d(v,w)$. 
+The {\it degree} of the vertex $\delta(v)$ is the number of neighbors $| N(v) |$.  
+The {\it degree} of the graph $\Delta(G)$ is the maximum degree of vertices.
+The {\it distance} of the pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
 The {\it diameter} $D(G)$ of the graph is the  maximum distance of all pairs of vertices.
 
-The {\it Degree/Diameter problem} is the problem of finding the largest possible number of vertices in a graph of given degree $\Delta$ and diameter $D$~\cite{MilSir2005}~\cite{brown1966graphs}. 
-The order of the graph of degree $\Delta$ ($\Delta > 2$) and diameter $D$ is easily seen to be bounded by 
-\[ 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
-which is called {\it Moore bound}.
+The {\it degree/diameter problem} is the problem of finding the largest possible number of vertices $n_{\Delta,D}$ in a graph of given degree $\Delta$ and diameter $D$~\cite{MilSir2005}~\cite{brown1966graphs}. 
+Let $G$ be a graph with degree $\Delta$ ( $\Delta > 2$ ) and diameter $D$, then we have 
+\[ |G| \leq 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
+The right hand side of the above equation is called {\it Moore bound}.
 Moore bound is a general upper bound. 
 On the other hand, already known lower bound of small degree and small diameter are availabe at \url{http://combinatoricswiki.org}. 
 Especially for case of $D=2$ and large degree, there exists the general construction called the {\it Brown's construction}~\cite{MilSir2005}.
-Given the finite field $F_q$ where q is a power of prime, we can construct the graph $\B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
+Given the finite field $F_q$ where $q$ is a power of prime, we can construct the graph $\B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
 We call it the Brown's graph.
 The order of $B(F_q)$ is $q^2+q+1$ and the degree of it is $q+1$. The diameter of it is $2$ because $B(F_q)$ includes many triangles. 
 $F_q^3$ is isotropic so any lines are symmetric in $F_q^3$, the degree of the vertex of $\B(F_q)$ is $q+1$ or $q$. 
 There exists $q+1$ vertices of degree $q$ in $\B(F_q)$.
 If $q$ is a power of $2$, there exists $(q+1,2)$-graph with $q^2+q+2$ vertices by modifying $\B(F_q)$~\cite{journals/networks/ErdosFH80}.
-In this paper, we generalize the Brown's construction, in which we replace a field with a commutative ring, and search new records of the Degree/Diameter Problem.
+In this paper, we generalize the Brown's construction, in which we replace a field with a commutative ring, and search new records of the degree/diameter problem.
 
 %%% Hmm %%%
 \iffalse
@@ -184,7 +180,7 @@ Using Lemma \ref{Lem:diameter}, we get $D(\B(\Z_p^k)) = 2$
 
 We search new records among graphs by generalized Brown's construction.
 Using the above theorem, $\B(\Z_{17^2})$ has degree $306$ and diameter $2$ and $88723$ vertices.
-It is a new record of $(306,2)$ of the Degree-Diameter Problem because it cannot be obtained from ordinary Brown's construction.
+It is a new record of $(306,2)$ of the degree/diameter problem because it cannot be obtained from ordinary Brown's construction.
 The power of prime less than $305=306 - 1$ is $293^1$ and the graph $\B(\Z_{293})$ obtained from ordinary Brown's construction of $293^1$ has $294=293+1$ degree and $86143=293^2+293+1$ vertices.
 The old record of $306=294+12$ is $86156=86143+12$ obtained from $\B(\Z_{293})$ by duplicating vertices.
 In the same way, the graph obtained from $\B(\Z_{17^2})$ by duplicating any one vertex, whose order is $88724$, is a new record of $(307,2)$ because the power of prime less than $306=307-1$ is $293^1$.
