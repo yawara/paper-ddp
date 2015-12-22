@@ -28,23 +28,16 @@ One is $(306,2)$-graph with $88723$ vertices, the other is $(307,2)$-graph with 
 \end{abstract}
 
 \section{Introduction}
-A {\it graph} $G=(V,E)$ consists of a set $V$ of {\it vertices} and a set $E \subset \{(v,w) \in V^2 | v \neq w \}$ of {\it edges}.
-If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}, which is denoted by $v \sim w$.
-The {\it order} $|G|$ of the graph is the number of vertices. 
-The {\it neighbors} $N(v)$ of the vertex $v$ is a set of vertices which are adjacent to $v$.
-The {\it degree} $\delta(v)$ of the vertex $v$ is the number of neighbors $| N(v) |$.  
-The {\it degree} $\Delta(G)$ of the graph $G$ is the maximum degree of vertices, namely $\Delta(G)=\max\{\delta(v)|v\in V\}$.
-The {\it distance} of the pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
-The {\it diameter} $D(G)$ of the graph is the  maximum distance of all pairs of vertices.
 
 The {\it degree/diameter problem} is the problem of finding the largest possible number  $n_{\Delta,D}$ of vertices in a graph of given degree $\Delta$ and diameter $D$~\cite{MilSir2005, brown1966graphs}. 
 Let $G$ be a graph with degree $\Delta$ ( $\Delta > 2$ ) and diameter $D$, then we have 
 \[ |G| \leq n_{\Delta,D} \leq 1 + \Delta \sum_{k=1}^{D-1} (\Delta - 1)^k\]
+where $|G|$ is the number of vertices of $G$. 
 The right hand side of the above inequation is called {\it Moore bound}.
-On the other hand, a lower bound of $n_{\Delta,D}$ for small degree and small diameter are availabe at \url{http://combinatoricswiki.org}. 
-Especially for case of $D=2$ and large degree, there exists the general construction that gives a lower bound of $n_{\Delta,2}$, which is called the {\it Brown's construction}~\cite{MilSir2005}.
+On the other hand, a lower bound of $n_{\Delta,D}$ for small degree and small diameter are available at \url{http://combinatoricswiki.org}. 
+Especially for case of $D=2$ and large degree, there exists the general construction that gives a lower bound of $n_{\Delta,2}$, which is called {\it Brown's construction}~\cite{MilSir2005}.
 Let $F_q$ be the finite field, where $q$ is a power of a prime.
-We construct the graph $\B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
+Brown's construction gives the graph $\B(F_q)$ whose vertices are lines in $F_q^3$ and two lines are adjacent if and only if they are orthogonal. 
 It follows that
 
 \[|\B(F_q)| = q^2+q+1, \quad
@@ -53,7 +46,7 @@ D(\B(F_q))=2.
 \]
 The degree of each vertex of $\B(F_q)$ is $q+1$ or $q$. 
 Among $q^2+q+1$ vertices, $q+1$ vertices are of degree $q$ and $q^2$ vertices are of degree $q+1$.
-If $q$ is a power of $2$, there exists $(q+1,2)$-graph with $q^2+q+2$ vertices ~\cite{journals/networks/ErdosFH80}.
+If $q$ is a power of $2$, there exists $(q+1,2)$-graph with $q^2+q+2$ vertices~\cite{journals/networks/ErdosFH80}.
 
 In this paper, we generalize Brown's construction by replacing a field with a commutative ring, and search new records of the degree/diameter problem.
 
@@ -66,7 +59,16 @@ The {\it tensor product} of two graphs $G_1=(V_1,E_1),G_2=(V_2,E_2)$ is a graph 
 %%% --- %%%
 
 \section{Generalized Brown's Construction}
-We give some defitions for generalized Brown's construction.
+We give some definitions for generalized Brown's construction.
+A {\it graph} $G=(V,E)$ consists of a set $V$ of {\it vertices} and a set $E \subset \{(v,w) \in V^2 | v \neq w \}$ of {\it edges}.
+If $(v,w)$ is in $E$, it is said that $v$ and $w$ are {\it adjacent}, which is denoted by $v \sim w$.
+The {\it order} $|G|$ of the graph is the number of vertices. 
+The {\it neighbours} $N(v)$ of the vertex $v$ is a set of vertices which are adjacent to $v$.
+The {\it degree} $\delta(v)$ of the vertex $v$ is the number of neighbours $| N(v) |$.  
+The {\it degree} $\Delta(G)$ of the graph $G$ is the maximum degree of vertices, namely $\Delta(G)=\max\{\delta(v)|v\in V\}$.
+The {\it distance} of the pair $(v,w)$ of vertices is the shortest path length between $v$ and $w$. 
+The {\it diameter} $D(G)$ of the graph is the  maximum distance of all pairs of vertices.
+
 Let $R$ be a commutative ring with unity. 
 $R^*$ denotes the set of invertible elements of $R$.
 $R^3$ is naturally seen as $R$-module. 
@@ -88,7 +90,7 @@ Let $R$ be a commutative ring with unity. The vertex set $V$ of the graph $\B(R)
 where $\bm v \sim \bm w$ if and only if there exists $k \in R^*$ such that $k \cdot {\bm v} = {\bm w}$. The two vertices $[\bm v]$ and $[\bm w]$ are adjacent if and only if ${\bm v} \cdot {\bm w} = 0$.
 \end{Def}
 
-The definition of adjacency above is well-defined because the orthogonality does not depend on the selection of representatives. We call the above construction of a graph from a ring the {\it generalized Brown's construction}. It is clear that the new construction coincides with Brown's one when the ring $R$ is a field. 
+The definition of adjacency above is well-defined because the orthogonality does not depend on the selection of representatives. We call the above construction of a graph from a ring {\it generalized Brown's construction}. It is clear that the new construction coincides with Brown's one when the ring $R$ is a field. 
 
 %%% Hmmm %%%
 \iffalse
@@ -99,7 +101,7 @@ Let $R_1, R_2$ be commutative rings with unit.
 \end{Lem}
 
 \begin{Cor}
-The followig equations hold.
+The following equations hold.
 \begin{enumerate}
 \item $ | \B(R_1 \times R_2) | = | \B(R_1) | \times | \B(R_2) | $
 \item $ \Delta(\B(R_1 \times R_2)) = \Delta(\B(R_1)) \times \Delta( \B(R_2) )$
@@ -119,7 +121,7 @@ where $(u^k)$ is the principal ideal generated by $u^k$.
 It is clear that the degrees of vertices represented by $(1,0,0), (0,1,0), (0,0,1)$ are the same.
 Let ${\bm v} = ([a],[b],[c])$ be a representative of any vertex where $a,b,c \in E$. 
 If any element of $[a],[b],[c]$ is not invertible in $E/(u^k)$, 
-there exist natural numbers $1 \leq l,m,n < k$ and some elements $a',b',c'$ in $E$ such that $a=u^l a', b=u^m b', c=u^n c'$. ${\bm v}$ is not a representative of vertices, the equation  $[u^{min(l,m,n)}] \cdot {\bm v} = ([0],[0],[0])$ holds. 
+there exist natural numbers $1 \leq l,m,n < k$ and some elements $a',b',c'$ in $E$ such that $a=u^l a', b=u^m b', c=u^n c'$. ${\bm v}$ is not a representative of vertices because the equation  $[u^{min(l,m,n)}] \cdot {\bm v} = ([0],[0],[0])$ holds. 
 This is a contradiction.
 Therefore, at least one of $[a],[b],[c]$ is invertible.
 If $[a]$ is invertible, there exists one-to-one correspondence $\overline{U}: N([(1,0,0)])  \rightarrow N([{\bm v}])$ such that for all $[{\bm w}] \in N([1,0,0])$, $\overline{U}([\bm w]) = [ {}^t\!U^{-1} {\bm w} ]$ where $U$ is an invertible matrix defined as follows
@@ -198,7 +200,7 @@ The old record of $306=294+12$ is $86156=86143+12$ obtained from $\B(\Z_{293})$ 
 In the same way, the graph obtained from $\B(\Z_{17^2})$ by duplicating any one vertex, whose order is $88724$, is a new record of $(307,2)$ because the power of a prime less than $306=307-1$ is $293^1$.
 
 \section*{Acknowledgements}
-We wish to thank Ryosuke Mizuno, Nobuhito Tamaki, and Sakie Suzuki.
+We wish to thank Ryosuke Mizuno, Nobuhito Tamaki, Masahito Hasegawa,Shin-ya Katsumata, and Sakie Suzuki.
 
 \bibliographystyle{plain}
 \bibliography{ref}
